@@ -7,8 +7,9 @@ you will implement a part of a rudimentary webserver.
 
 Part 1
 ------
-* In the function count you will need to output a list of numbers, starting at 0, and ending at the argument-1 separated by commas.
+* In the function count you will need to output a list of numbers, starting at 0, and ending at the argument-1 separated by commas and spaces.
 ** Example Output: AssignmentOne.count(5) => 0, 1, 2, 3, 4
+** If given invalid input, such as 0, negative numbers, or non-FIXNUM objects, return the empty string ""
 * In the function num_to_name you will take in a single digit number (from 0 to 9). If the input is invalid output the string "Invalid". Otherwise output the word representing the number
 ** Example Output: AssignmentOne.num_to_name(3) => three
 ** Example Output: AssignmentOne.num_to_name("stuff") => Invalid
