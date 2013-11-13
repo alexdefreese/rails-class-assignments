@@ -1,13 +1,12 @@
 #! /usr/bin/env ruby
 
 require './webserver-lib.rb'
-
+include HttpResponse
 # Remember: Run this as root
 
-module Webserver
+class Webserver
   # Add code to this function to serve the file from the provided path
-  def serve_file(path)
-
+  def self.serve_file(path)
 
   end
 
@@ -17,7 +16,7 @@ module Webserver
 
   Dir.chroot("./webroot")
 
-  def interactive_run
+  def self.interactive_run
     puts "Insert Headers. End with double \\n"
 
     http_headers = Array.new
@@ -37,7 +36,7 @@ module Webserver
     puts process http_headers
   end
 
-  def process http_headers
+  def self.process http_headers
     requestline = http_headers[0].split(" ")
 
     path = requestline[1]
@@ -47,6 +46,6 @@ module Webserver
   end
 end
 
-if __FILE__ == $0:
+if __FILE__ == $0
   Webserver.interactive_run
 end
