@@ -36,8 +36,9 @@ class Webserver
     puts process http_headers
   end
 
-  def self.process http_headers
-    requestline = http_headers[0].split(" ")
+  def self.process(http_headers)
+    headers_lines = http_headers.split("\n")
+    requestline = headers_lines[0].split(" ")
 
     path = requestline[1]
 
