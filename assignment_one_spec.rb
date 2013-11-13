@@ -1,19 +1,25 @@
 require 'test/unit'
 
-require_relative 'webserver'
+require_relative 'assignment_one'
+include AssignmentOne
 
 class TestAssignmentOne < Test::Unit::TestCase
 
-  def test_webserver_root
-    index_html = "HTTP 1.1 200 OK\nContent-Type: text/html; charset=utf-8\nConnection: close\n<!DOCTYPE HTML>\n\n<html>\n  <head>\n    <title>Assignment 1!</title>\n  </head>\n  <body>\n    This is index.html. Please run properly.\n  </body>\n</html>\n"
-    assert_equal(index_html, Webserver.process("GET / HTTP 1.1\n\n"))
+
+  def test_count_5
+    good_out = "0, 1, 2, 3, 4, 5"
+    assert_equal(good_out, count(5))
   end
 
-  def test_webserver_index
+  def test_count_0
+    assert_equal("", count(0))
+  end
 
-    index_html = "HTTP 1.1 200 OK\nContent-Type: text/html; charset=utf-8\nConnection: close\n<!DOCTYPE HTML>\n\n<html>\n  <head>\n    <title>Assignment 1!</title>\n  </head>\n  <body>\n    This is index.html. Please run properly.\n  </body>\n</html>\n"
+  def test_num_2
+    assert_equal "two", num_to_name(2)
+  end
 
-
-    assert_equal(index_html, Webserver.process("GET /index.html HTTP 1.1\n\n"))
+  def test_num_stuff
+    assert_equal "Invalid", num_to_name("stuff")
   end
 end
