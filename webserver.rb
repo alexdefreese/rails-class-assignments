@@ -2,7 +2,6 @@
 
 require './webserver-lib.rb'
 include HttpResponse
-# Remember: Run this as root
 
 class Webserver
   # Add code to this function to serve the file from the provided path
@@ -14,7 +13,7 @@ class Webserver
 
   # Initialize
 
-  Dir.chroot("./webroot")
+  Dir.chdir("./webroot")
 
   def self.interactive_run
     puts "Insert Headers. End with double \\n"
